@@ -5,16 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link type="stylesheet" href="css/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/zoomsl.js"></script>
+    <style>
+        ul{ float: left; padding: 0px; margin: 0px;}
+        ul li{ margin-bottom: 5px;}
+        ul li img { width: 60px; height: 70px;}
+        .small_img{ border: 1px solid #000; cursor: pointer;}
+        .large_image{ width:20%; height: 400px; float: left; margin-left: 10px;}
+    </style>
+    
 </head>
 <body>
     
     <ul>
-        <li><img src="image/1-12.jpg" class="image_img"></li>
-        <li><img src="image/2-11.jpg" class="image_img"></li>
-        <li><img src="image/3-11.jpg" class="image_img"></li>
-        <li><img src="image/4-10.jpg" class="image_img"></li>
+        <li><img src="image/1-12.jpg" class="small_img"></li>
+        <li><img src="image/2-11.jpg" class="small_img"></li>
+        <li><img src="image/3-11.jpg" class="small_img"></li>
+        <li><img src="image/4-10.jpg" class="small_img"></li>
     </ul>
+    <img src="image/1-12.jpg" class="large_image">
 
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".small_img").hover(function(){
+            $(".large_image").attr('src',$(this).attr('src'));
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".large_image").imagezoomsl({
+            zoomrange:[4, 3]
+        });
+    });
+</script>
